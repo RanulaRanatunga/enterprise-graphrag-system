@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-ai-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: python-ai-service
+  template:
+    metadata:
+      labels:
+        app: python-ai-service
+    spec:
+      containers:
+      - name: ai-container
+        image: your-docker-registry/python-ai-service:latest
+        ports:
+        - containerPort: 8001
+        env:
+        - name: OPENAI_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: ai-secrets
+              key: openai-key
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: python-ai-service
+spec:
+  selector:
+    app: python-ai-service
+  ports:
+    - protocol: TCP
+      port: 8001
+      targetPort: 8001

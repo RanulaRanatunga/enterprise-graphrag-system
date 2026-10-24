@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+langchain
+langchain-core
+langgraph
+langchain-openai
+langchain-community
+neo4j
+pymilvus
+sentence-transformers
+pinecone-client
+rank_bm25
