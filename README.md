@@ -154,6 +154,5 @@ enterprise-graphrag-system/
 │   └── python-ai-deployment.yaml  # Kubernetes deployment manifest
 ├── start.bat                      # Startup automation script
 └── stop.bat                       # Shutdown automation script
-```
 
 ---
